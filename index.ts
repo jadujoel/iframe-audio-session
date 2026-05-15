@@ -5,7 +5,7 @@ export async function serve() {
   const server = Bun.serve({
     routes: {
       "/": home,
-      "/iframe": iframe,
+      "/iframe.html": iframe,
     },
     development: {
       hmr: true,
