@@ -1,12 +1,17 @@
-import home from "./dist/index.html";
+import iframe from "./src/iframe.html";
+import home from "./src/index.html";
 
 export async function serve() {
-  await Bun.$`bun run build`
   const server = Bun.serve({
     routes: {
-      "/": home
-    }
-  })
+      "/": home,
+      "/iframe": iframe,
+    },
+    development: {
+      hmr: true,
+      console: true,
+    },
+  });
   console.log(`Server running at http://localhost:${server.port}`);
 }
 
